@@ -24,7 +24,7 @@ class SignupCodeInline(admin.TabularInline):
             'fields': ('code', 'ipaddr', 'created_at')
         }),
     )
-    readonly_fields = SignupCode._meta.get_all_field_names()
+    # readonly_fields = SignupCode._meta.get_all_field_names()
 
     def has_add_permission(self, request):
         return False
@@ -46,7 +46,7 @@ class PasswordResetCodeInline(admin.TabularInline):
             'fields': ('code', 'created_at')
         }),
     )
-    readonly_fields = PasswordResetCode._meta.get_all_field_names()
+    # readonly_fields = PasswordResetCode._meta.get_all_field_names()
 
     def has_add_permission(self, request):
         return False
@@ -69,7 +69,7 @@ class EmailUserAdmin(UserAdmin):
     form = EmailUserChangeForm
     add_form = EmailUserCreationForm
     inlines = [SignupCodeInline, PasswordResetCodeInline]
-    list_display = ('email', 'is_verified', 'first_name', 'last_name', 
+    list_display = ('email', 'is_verified', 'first_name', 'last_name',
         'is_staff')
     search_fields = ('first_name', 'last_name', 'email')
     ordering = ('email',)
