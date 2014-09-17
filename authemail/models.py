@@ -142,7 +142,9 @@ class AbstractBaseCode(models.Model):
             'email': self.user.email,
             'first_name': self.user.first_name,
             'last_name': self.user.last_name,
-            'code': self.code
+            'code': self.code,
+            'STATIC_URL': settings.STATIC_URL,
+            'BASE_URL': settings.BASE_URL
         }
         text_content = render_to_string(txt_file, ctxt)
         html_content = render_to_string(html_file, ctxt)
