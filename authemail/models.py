@@ -143,6 +143,7 @@ class AbstractBaseCode(models.Model):
             'first_name': self.user.first_name,
             'last_name': self.user.last_name,
             'code': self.code,
+            'MEDIA_URL': settings.STATIC_URL,
             'STATIC_URL': settings.STATIC_URL,
             'BASE_URL': settings.BASE_URL
         }
